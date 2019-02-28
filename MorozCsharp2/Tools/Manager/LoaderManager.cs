@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace KMA.ProgrammingInCSharp2019.Practice4.LoginControlAsync.Tools.Managers
+namespace MorozCsharp2.Tools.Manager
 {
     internal class LoaderManager
     {

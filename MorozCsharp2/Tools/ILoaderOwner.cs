@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 
-namespace KMA.ProgrammingInCSharp2019.Practice4.LoginControlAsync.Tools
+namespace MorozCsharp2.Tools
 {
     internal interface ILoaderOwner : INotifyPropertyChanged
     {

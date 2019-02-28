@@ -1,0 +1,23 @@
+packages/*
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+sql/
+*.mdf
+*.ldf
+
+# Microsoft Fakes
+FakesAssemblies/
+
+git_stats/*
+
+*.ncrunchproject
+StyleCop.Cache
+bin
+obj
+.vs

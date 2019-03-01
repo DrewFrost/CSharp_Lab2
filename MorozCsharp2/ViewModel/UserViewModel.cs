@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using MorozCsharp2.Models;
 using MorozCsharp2.Tools;
@@ -16,10 +18,13 @@ namespace MorozCsharp2.ViewModel
    internal class UserViewModel:BaseViewModel
    {
         private readonly User _user;
-        private string _name = "";
+        private string _name;
+        private string _showName;
         private string _surname;
-        private string _email = "";
-        private DateTime _birthdayDate;
+        private string _showSurname;
+        private string _email;
+        private string _showEmail;
+        private DateTime _birthdayDate = DateTime.Parse("20.02.2002");
         private string _birthday;
         private string _age;
         private string _adult;
@@ -44,7 +49,7 @@ namespace MorozCsharp2.ViewModel
 
         public string Name
         {
-            get { return _name ; }
+            get { return _name; }
             set
             {
                 _name = value;
@@ -52,6 +57,18 @@ namespace MorozCsharp2.ViewModel
 
             }
         }
+        public string ShowName
+        {
+            get { return _showName; }
+            set
+            {
+                _showName = value;
+                OnPropertyChanged();
+
+            }
+        }
+
+
         public string Surname
         {
             get { return _surname; }
@@ -59,6 +76,17 @@ namespace MorozCsharp2.ViewModel
             {
                 _surname = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public string ShowSurname
+        {
+            get { return _showSurname; }
+            set
+            {
+                _showSurname = value;
+                OnPropertyChanged();
+
             }
         }
         public string Email
@@ -70,6 +98,16 @@ namespace MorozCsharp2.ViewModel
                 OnPropertyChanged();
             }
         }
+        public string ShowEmail
+        {
+            get { return _showEmail; }
+            set
+            {
+                _showEmail = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public DateTime BirthdayDate
         {
@@ -150,39 +188,54 @@ namespace MorozCsharp2.ViewModel
             {
                return _startCommand = new RelayCommand<object>(async obj =>
                {
-
+                    CleanAll();   
                     LoaderManager.Instance.ShowLoader();
                     await Task.Run(() => Thread.Sleep(2000));
                     LoaderManager.Instance.HideLoader();
                     int userAge = UsersAge();
-                    if (userAge <= 0)
+                    _showName = _name;
+                    _showSurname = _surname;
+                    _showEmail = _email;
+                    if (String.IsNullOrEmpty(_name) || String.IsNullOrEmpty(_surname) || String.IsNullOrEmpty(_email))
+                    {
+                        MessageBox.Show("You haven't entered all required values");
+                        CleanInput();
+                        
+                   }
+                    else if (userAge <= 0)
                     {
                         MessageBox.Show("You don't even exist yet, don't lie to me");
-                        throw new Exception("You're too young");
-                    }else if (userAge >= 135)
+                        
+                   }
+                   else if (userAge >= 135)
                     {
                         MessageBox.Show("Go take your pills old man");
-                        throw new Exception("You're too old for us");
+                        
                     }else
                     {
                         if (BirthdayDate.DayOfYear == DateTime.Today.DayOfYear)
                         {
                             MessageBox.Show("Happy Birthday!");
                         }
-                        Name = $"Your surname is {_name}";
-                        Surname = $"Your surname is {_surname}";
+
+                        ShowName = $"Your surname is {_showName}";
+                        ShowSurname = $"Your surname is {_showSurname}";
                         Age = $"You are {userAge.ToString()} years old";
-                        Email = (_email != "" ? $"Your email is {_email}": $"You haven't entered email");
-                        Adult = isAdult();
+                        ShowEmail = $"Your email is {_showEmail}";
+                        Adult = IsAdult();
                         WesternZodiac = $"Your western zodiac sign is {WesternZodiacSign()}";
                         SunZodiac = $"Your sun zodiac sign is {SunZodiacSign()}";
                         ChineseZodiac = $"You chinese zodiac sign is {ChineseZodiacSign()}";
+                        CleanInput();
                     }
                     
 
                 });
             }
         }
+
+
+
 
        private int UsersAge()
        {
@@ -191,7 +244,7 @@ namespace MorozCsharp2.ViewModel
        }
 
 
-       private string isAdult()
+       private string IsAdult()
        {
            if (UsersAge() <= 17)
            {
@@ -200,6 +253,26 @@ namespace MorozCsharp2.ViewModel
 
            return $"You are adult";
         }
+
+       private void CleanInput()
+       {
+           Name = "";
+           Surname = "";
+           Email = "";
+
+       }
+
+       private void CleanAll()
+       {
+           ShowName = "";
+           ShowSurname = "";
+           ShowEmail = "";
+           Age = "";
+           WesternZodiac = "";
+           ChineseZodiac = "";
+           SunZodiac = "";
+           Adult = "";
+       }
 
        private string WesternZodiacSign()
        {

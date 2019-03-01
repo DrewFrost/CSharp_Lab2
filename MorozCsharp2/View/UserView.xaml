@@ -9,7 +9,7 @@
     <Border Padding="5" Height="215" VerticalAlignment="Top">
         <Grid Margin="0,0,0,-90">
             <Label Content="Name" HorizontalAlignment="Left" Margin="65,5,0,0" VerticalAlignment="Top" Width="100"/>
-            <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Height="20" Margin="65,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+            <TextBox Text="{Binding Name }" HorizontalAlignment="Left" Height="20" Margin="65,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
             <Label Content="Surname" HorizontalAlignment="Left" Margin="65,55,0,0" VerticalAlignment="Top" Width="100"/>
             <TextBox Text="{Binding Surname}" HorizontalAlignment="Left" Height="23" Margin="65,75,0,0" VerticalAlignment="Top" Width="245"/>
             <Label Content="Email" HorizontalAlignment="Left" Margin="67,100,0,0" VerticalAlignment="Top" Width="100"/>
@@ -17,14 +17,14 @@
             <Label Content="Enter your date of birth like day.month.year" HorizontalAlignment="Left" Margin="65,139,0,0" VerticalAlignment="Top" Width="255"/>
             <DatePicker SelectedDate="{Binding BirthdayDate}" HorizontalAlignment="Left" Margin="65,166,0,0" VerticalAlignment="Top" Width="255"/>
             <Button Content="Start" Command="{Binding StartCommand}" HorizontalAlignment="Left" Margin="125,205,0,0" VerticalAlignment="Top" Width="115"/>
-            <TextBox HorizontalAlignment="Left"  Height="23" Margin="440,30,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,57,0,0" TextWrapping="Wrap" Text="{Binding Surname, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,82,0,0" TextWrapping="Wrap" Text="{Binding Age, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,110,0,0" TextWrapping="Wrap" Text="{Binding Email, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,135,0,0" TextWrapping="Wrap" Text="{Binding Adult,Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,162,0,0" TextWrapping="Wrap"  Text="{Binding WesternZodiac, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,187,0,0" TextWrapping="Wrap"  Text="{Binding ChineseZodiac, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,212,0,0" TextWrapping="Wrap"  Text="{Binding SunZodiac, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
+            <TextBox HorizontalAlignment="Left"  Height="23" Margin="440,30,0,0" TextWrapping="Wrap" Text="{Binding ShowName,Mode = OneWay,UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="240"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,57,0,0" TextWrapping="Wrap" Text="{Binding ShowSurname,Mode = OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,82,0,0" TextWrapping="Wrap" Text="{Binding ShowEmail,Mode = OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,110,0,0" TextWrapping="Wrap" Text="{Binding Age,Mode = OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,135,0,0" TextWrapping="Wrap" Text="{Binding Adult,Mode = OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,162,0,0" TextWrapping="Wrap"  Text="{Binding WesternZodiac, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,187,0,0" TextWrapping="Wrap"  Text="{Binding ChineseZodiac, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="440,212,0,0" TextWrapping="Wrap"  Text="{Binding SunZodiac, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="240"/>
 
 
 

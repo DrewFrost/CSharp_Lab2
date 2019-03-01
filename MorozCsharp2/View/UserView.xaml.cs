@@ -14,17 +14,17 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MorozCsharp2.ViewModel;
 
-namespace MorozCsharp2
+namespace MorozCsharp2.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для UserView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserView : UserControl
     {
-        public MainWindow()
+        public UserView()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            DataContext = new UserViewModel();
         }
     }
 }

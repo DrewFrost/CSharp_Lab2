@@ -1,14 +1,8 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Input;
 using MorozCsharp2.Models;
 using MorozCsharp2.Tools;
 using MorozCsharp2.Tools.Manager;
@@ -211,7 +205,12 @@ namespace MorozCsharp2.ViewModel
                     {
                         MessageBox.Show("Go take your pills old man");
                         
-                    }else
+                    }
+                    else if(!IsValidEmailAddress(_email))
+                    {
+                        MessageBox.Show("Enter valid Email");
+                    }
+                    else
                     {
                         if (BirthdayDate.DayOfYear == DateTime.Today.DayOfYear)
                         {
@@ -243,8 +242,14 @@ namespace MorozCsharp2.ViewModel
                   (BirthdayDate.Month > DateTime.Today.Month && BirthdayDate.Day > DateTime.Today.Day ? 1 : 0);
        }
 
+       public static bool IsValidEmailAddress( string s)
+       {
+           Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+           return regex.IsMatch(s);
+       }
+   
 
-       private string IsAdult()
+    private string IsAdult()
        {
            if (UsersAge() <= 17)
            {
